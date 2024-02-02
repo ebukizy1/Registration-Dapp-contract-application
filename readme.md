@@ -27,4 +27,4 @@ To deploy the frontend:
 Install dependencies: npm install
 Start the development server: npm start
 Ensure that the development environment has an Ethereum provider (e.g., MetaMask) connected to the Sepolia testnet.
-This setup provides a user-friendly interface for interacting with the Ethereum blockchain while maintaining the security and integrity of the underlying smart contract.
+This setup provides a user-friendly interface for interacting with the Ethereum blockchain while maintaining the security and integrity of the underlying smart contract..
