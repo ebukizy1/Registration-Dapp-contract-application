@@ -6,7 +6,7 @@ Testing
 The project includes a comprehensive set of tests within the "test" folder. These tests, implemented using the Hardhat framework, rigorously validate all contract functionalities. This approach ensures the contract's robustness and correctness.
 
 Deployment Script
-The deployment script is contained in the "script.js" file. The smart contract is deployed to the Sepolia Ethereum testnet, with the resulting contract address being 0x75Ed4Ac64a775815999FcBf007D25AcCD72311f1.
+The deployment script is contained in the "script.js" file. The smart contract is deployed to the Sepolia Ethereum testnet, with the resulting contract address being 0xa94333a8181C2ffCb7B6Ad032B1F4c57997EeF36.
 
 Contract Verification
 The contract undergoes verification using Hardhat, enhancing transparency and instilling confidence in users regarding the deployed code.
@@ -19,8 +19,9 @@ Communication with Smart Contract
 Ethereum blockchain communication is established using the ethers library, leveraging the ABI (Application Binary Interface) to interact seamlessly with the smart contract.
 
 Functionality
-updateName: Users can input a message, and the smart contract sets it on the Ethereum blockchain.
-updateAge: Users can retrieve the stored message from the blockchain.
+updateGoal: Users can input a there goal, and the smart contract sets it on the Ethereum blockchain.
+updateYear : Users can input a there goal, and the smart contract sets it on the Ethereum blockchain.
+getContractDetails: Users can retrieve the stored message from the blockchain.
 Deployment
 To deploy the frontend:
 
