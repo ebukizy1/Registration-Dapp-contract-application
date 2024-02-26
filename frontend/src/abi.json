@@ -1,8 +1,12 @@
 [
   {
     "inputs": [
-      { "internalType": "string", "name": "name", "type": "string" },
-      { "internalType": "uint256", "name": "age", "type": "uint256" }
+      { "internalType": "string", "name": "_goal", "type": "string" },
+      {
+        "internalType": "uint256",
+        "name": "_yearToAchievedGoal",
+        "type": "uint256"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -11,26 +15,24 @@
     "inputs": [],
     "name": "getEntityDetails",
     "outputs": [
-      { "internalType": "string", "name": "name", "type": "string" },
-      { "internalType": "uint256", "name": "age", "type": "uint256" }
+      { "internalType": "string", "name": "", "type": "string" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "uint256", "name": "newAge", "type": "uint256" }
-    ],
-    "name": "updateAge",
+    "inputs": [{ "internalType": "string", "name": "_goal", "type": "string" }],
+    "name": "updateGoal",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "newName", "type": "string" }
+      { "internalType": "uint256", "name": "_yearToAchieve", "type": "uint256" }
     ],
-    "name": "updateName",
+    "name": "updateYear",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -5,7 +5,7 @@ import { useState } from "react";
 import "./Registration.css";
 
 export const Registration = () => {
-  const contractAddress = "0x75Ed4Ac64a775815999FcBf007D25AcCD72311f1";
+  const contractAddress = "0xdAC15662B0894Fa834F79fA9178De30b4b80A055";
   async function requestAccount() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
   }
@@ -27,9 +27,9 @@ export const Registration = () => {
       );
 
       try {
-        const transaction = await contract.updateName(message);
+        const transaction = await contract.updateGoal(message);
         await transaction.wait();
-        console.log("Message set successfully");
+        console.log("Goal set successfully");
         setMessage("");
       } catch (err) {
         console.error("Error:", err);
@@ -49,7 +49,7 @@ export const Registration = () => {
       );
 
       try {
-        const transaction = await contract.updateAge(inputAge);
+        const transaction = await contract.updateYear(inputAge);
         await transaction.wait();
         console.log("Message set successfully");
         setInputAge("");
@@ -59,52 +59,49 @@ export const Registration = () => {
     }
   }
 
-  async function getContractDetails() {
-    if (typeof window.ethereum !== "undefined") {
+  async function getEntityDetails () {
+    if (typeof window.ethereum !== 'undefined') {
       await requestAccount();
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
-      const contract = new ethers.Contract(
-        contractAddress,
-        contractABI,
-        signer
-      );
-
+      const contract = new ethers.Contract(contractAddress, contractABI, signer);
+  
       try {
-        const transaction = await contract.getEntityDetails();
-        setContractName(transaction.toString().split(",")[0]);
-        setContractAge(transaction.toString().split(",")[1]);
-        console.log(transaction);
+        const details = await contract.getEntityDetails();
+        const [goal, year] = details;
+        setContractName(goal)
+        setContractAge(year)
       } catch (err) {
-        console.error("Error:", err);
+        console.error('Error:', err);
       }
     }
   }
-
+  
   return (
     <div className="input-bar">
-      <div className="header">Registration Updated Form</div>
+      <div className="header">GOAL SETTING FORM</div>
       <input
         type="text"
-        placeholder="Enter your message"
+        placeholder="Enter your goal"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button onClick={setRegistrationContractName}>Set Name</button>
+      <button onClick={setRegistrationContractName}>SET GOAL</button>
 
       <input
         type="text"
-        placeholder="Enter your Age"
+        placeholder="Enter your year to accomplish goal"
         value={inputAge}
         onChange={(e) => setInputAge(e.target.value)}
       />
-      <button onClick={setRegistrationAge}>Set Age</button>
+      <button onClick={setRegistrationAge}>SET YEAR</button>
 
-      <button onClick={getContractDetails}>Get Message</button>
+
+      <button onClick={getEntityDetails}>GET GOALS</button>
      
 
-      <p>contractName: {contractName}</p>
-      <p>contractAge: {contractAge}</p>
+      <p>GOAL SET: {contractName}</p>
+      <p>YEAR TO ACCOMPLISH: {contractAge}</p>
       </div>
 
   );

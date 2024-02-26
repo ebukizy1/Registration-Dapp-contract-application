@@ -2,11 +2,11 @@ const hre = require("hardhat");
 
 async function main() {
 
-  const name = "EMMANUEL CHUKWUMA";
-  const age = 24;
+  const goal = "I WANT TO BE A PROTOCOL ENGINEER IN WEB3 SPACE";
+  const yearToAchieved = 26;
 
 
-  const message = await hre.ethers.deployContract("SimpleRegistration", [name, age]);
+  const message = await hre.ethers.deployContract("SimpleGoal", [goal, yearToAchieved]);
 
   await message.waitForDeployment();
 
@@ -16,9 +16,14 @@ async function main() {
   );
 }
 
-//0x8199a8eE572d05221c1CDB908c868435399241c4
+
+// 0xa94333a8181C2ffCb7B6Ad032B1F4c57997EeF36
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-//0x75Ed4Ac64a775815999FcBf007D25AcCD72311f1
+
+
+// For more information, visit https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#verifying-on-sourcify
+// The contract 0xa94333a8181C2ffCb7B6Ad032B1F4c57997EeF36 has already been verified on Etherscan.
+// https://sepolia.etherscan.io/address/0xa94333a8181C2ffCb7B6Ad032B1F4c57997EeF36#code
